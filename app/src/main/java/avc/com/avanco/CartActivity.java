@@ -172,6 +172,9 @@ public class CartActivity extends AppCompatActivity {
                                 }
                                 if (which==0)   {
 
+                                    overTotalPrice = overTotalPrice - oneTypeProductType;
+                                    txtTotalAmount.setText("TOTAL: R$ "+ String.valueOf(overTotalPrice));
+
                                    FirebaseDatabase.getInstance().getReference()
                                     .child("Cart List").child("User View").child(Prevalent.currentOnlineUser.getPhone())
                                     .child("Products").child(model.getPid()).removeValue()
