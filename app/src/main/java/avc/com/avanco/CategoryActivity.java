@@ -1,13 +1,18 @@
 package avc.com.avanco;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class CategoryActivity extends AppCompatActivity {
     GridView gridView ;
@@ -16,10 +21,10 @@ public class CategoryActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
+
+
 
         gridView = findViewById(R.id.grid_view);
          CategoryAdapter adapter = new CategoryAdapter(CategoryActivity.this, numberWord, numberImage);
@@ -51,5 +56,45 @@ public class CategoryActivity extends AppCompatActivity {
 
         });
 
+
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.home);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), CategoryActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.products:
+                        startActivity(new Intent(getApplicationContext(), HomeeActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.settings:
+
+                        startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+/*
+                    case R.id.logout:
+                        loadingBar.setTitle("Sair");
+                        loadingBar.setMessage("Fazendo logoff...");
+                        loadingBar.setCanceledOnTouchOutside(false);
+                        loadingBar.show();
+
+                        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;*/
+
+
+
+                }
+                return false;
+            }
+        });
     }
 }

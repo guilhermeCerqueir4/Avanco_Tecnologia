@@ -52,6 +52,9 @@ public class LoginActivity extends AppCompatActivity
        // Paper.init(this);
 
 
+        getSupportActionBar().setTitle("Seja bem-vindo!");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
@@ -78,7 +81,7 @@ public class LoginActivity extends AppCompatActivity
             public void onClick(View view)
             {
                     parentDbName = "Users";
-                LoginButton.setText("Login ");
+                LoginButton.setText("Login");
                 AdminLink.setVisibility(View.VISIBLE);
                 NotAdminLink.setVisibility(View.INVISIBLE);
 
@@ -111,7 +114,11 @@ public class LoginActivity extends AppCompatActivity
         }
     }
 
-
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 
     private void AllowAccessToAccount(final String phone, final String senha)
     {
@@ -141,20 +148,21 @@ public class LoginActivity extends AppCompatActivity
 
                             if (parentDbName.equals("Admins"))
                             {
-                                Toast.makeText(LoginActivity.this, "Bem-vindo, "+ usersData.getNomeUsuario().toUpperCase()+" !", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Login com Sucesso...", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
 
-                                Intent intent = new Intent(LoginActivity.this, HomeActivity.class); //admin
-
+                                Intent intent = new Intent(LoginActivity.this, AdminCategoryActivity.class); //admin
+                                Prevalent.currentOnlineUser = usersData;
                                 startActivity(intent);
                             }
                             else if (parentDbName.equals("Users"))
                             {
-                                Toast.makeText(LoginActivity.this, "Bem-vindo, "+ usersData.getNomeUsuario().toUpperCase() + " !" , Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Login com Sucesso... ", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
 
-                                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                                Intent intent = new Intent(LoginActivity.this, HomeeActivity.class);
                                 Prevalent.currentOnlineUser = usersData;
+
                                 startActivity(intent);
                             }
                         }
@@ -179,3 +187,18 @@ public class LoginActivity extends AppCompatActivity
         });
     }
 }
+
+/* MENU BOTTOM
+*
+*   <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_navigation"
+        app:itemBackground="@color/colorAccent"
+        app:itemTextColor="@color/colorPrimary"
+        app:itemIconTint="@android:color/white"
+        app:menu="@menu/menu_navigation"
+        android:layout_alignParentBottom="true"
+        />
+        *
+        * */

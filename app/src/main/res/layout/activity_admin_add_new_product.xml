@@ -1,9 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="avc.com.avanco.AdminAddNewProductActivity">
+    tools:context="avc.com.avanco.AdminAddNewProductActivity"
+    android:background="@color/colorPrimary">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/preencha"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:textStyle="bold
+"           android:typeface="monospace"
+            android:text="Adicionar novo produto:"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+
+            ></TextView>
+
+    <ImageView
+        android:id="@+id/select_product_image"
+        android:layout_below="@+id/preencha"
+        android:layout_width="355dp"
+        android:layout_height="171dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="65dp"
+        android:layout_marginRight="65dp"
+        android:cropToPadding="false"
+        android:scaleType="fitXY"
+        android:src="@drawable/add_camera" />
+
+    <EditText
+        android:id="@+id/product_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/select_product_image"
+        android:inputType="textMultiLine"
+        android:layout_marginTop="20dp"
+        android:padding="15dp"
+        android:hint="Nome do produto..."
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"
+        android:background="@drawable/bordas"
+        />
+
+        <EditText
+            android:id="@+id/product_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:layout_marginTop="15dp"
+            android:padding="15dp"
+            android:hint="Preço do produto..."
+            android:digits="0123456789.,"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="45dp"
+            android:background="@drawable/bordas"
+            android:layout_below="@+id/product_name"
+            />
+    <EditText
+        android:id="@+id/product_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:layout_marginTop="15dp"
+        android:padding="15dp"
+        android:hint="Descrição do produto..."
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"
+        android:background="@drawable/bordas"
+        android:layout_below="@+id/product_price"
+        />
+
+
+
+    <Button
+        android:id="@+id/add_new_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/product_description"
+        android:text="Adicionar"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"
+        android:padding="17dp"
+        android:layout_marginTop="15dp"
+        android:textSize="22sp"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:background="@drawable/side_nav_bar"
+        /></RelativeLayout>
+</ScrollView>
+
+
+
+

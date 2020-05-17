@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context="avc.com.avanco.RegistrationActivity">
 
 
@@ -24,9 +24,10 @@
 
 
             <ImageView
-                android:layout_width="81dp"
-                android:layout_height="73dp"
+                android:layout_width="76dp"
+                android:layout_height="68dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="30dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/avanco_logo_invert" />
 
@@ -37,8 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="25dp"
-
-                android:background="@color/colorPrimary"
+                android:background="@android:color/holo_red_dark"
                 android:drawablePadding="10dp"
                 android:text="Já possui conta? Clique aqui !"
                 android:textStyle="bold|italic"
@@ -93,7 +93,7 @@
                 android:drawablePadding="10dp"
                 android:ems="10"
                 android:hint="Telefone"
-                android:inputType="textEmailAddress"
+                android:inputType="number"
                 android:padding="15dp"
                 android:textColorHint="@color/colorPrimary"
                 android:textSize="15dp"
@@ -141,7 +141,7 @@
                 android:background="@color/colorAccent"
                 android:drawablePadding="10dp"
                 android:text="Registrar"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@android:color/white"
                 android:textSize="16dp"
                 android:textStyle="bold"
 
