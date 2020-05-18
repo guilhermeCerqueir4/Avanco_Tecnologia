@@ -70,11 +70,13 @@ public class SettingsActivity extends AppCompatActivity
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.home:
+                        finish();
                         startActivity(new Intent(getApplicationContext(), CategoryActivity.class));
                         overridePendingTransition(0,0);
                         return true;
 
                     case R.id.products:
+                        finish();
                         startActivity(new Intent(getApplicationContext(), HomeeActivity.class));
                         overridePendingTransition(0,0);
                         return true;

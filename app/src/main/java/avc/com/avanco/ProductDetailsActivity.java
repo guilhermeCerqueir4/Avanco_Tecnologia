@@ -121,7 +121,9 @@ public class ProductDetailsActivity extends AppCompatActivity {
                                                 Toast.makeText(ProductDetailsActivity.this, "Adicionado ao Carrinho",Toast.LENGTH_SHORT).show();
 
                                                 Intent intent = new Intent(ProductDetailsActivity.this, HomeeActivity.class);
+                                                finish();
                                                 startActivity(intent);
+
                                             }
                                         }
                                     });
@@ -152,6 +154,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         }
 
         if(id == R.id.action_cart) {
+            finish();
             startActivity(new Intent(getApplicationContext(), CartActivity.class));
             overridePendingTransition(0,0);
         }
@@ -164,6 +167,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 public void onClick(DialogInterface dialog, int which) {
                     switch (which){
                         case DialogInterface.BUTTON_POSITIVE:
+                            finish();
                             startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                             overridePendingTransition(0,0);
                             break;
@@ -193,6 +197,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
+        finish();
         return true;
     }
 

@@ -87,6 +87,8 @@ public class LoginActivity extends AppCompatActivity
 
             }
         } );
+
+
     }
 
 
@@ -117,6 +119,7 @@ public class LoginActivity extends AppCompatActivity
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
+        finish();
         return true;
     }
 

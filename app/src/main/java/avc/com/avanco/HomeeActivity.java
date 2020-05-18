@@ -75,14 +75,12 @@ public class HomeeActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.home:
+
                         startActivity(new Intent(getApplicationContext(), CategoryActivity.class));
                         overridePendingTransition(0,0);
                         return true;
 
-                    case R.id.products:
-                        startActivity(new Intent(getApplicationContext(), HomeeActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
+
 
                     case R.id.settings:
 
@@ -175,6 +173,12 @@ public class HomeeActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        finish();
+        return true;
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -182,6 +186,7 @@ public class HomeeActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if(id == R.id.action_cart) {
+
             startActivity(new Intent(getApplicationContext(), CartActivity.class));
             overridePendingTransition(0,0);
         }
@@ -194,6 +199,7 @@ public class HomeeActivity extends AppCompatActivity {
                 public void onClick(DialogInterface dialog, int which) {
                     switch (which){
                         case DialogInterface.BUTTON_POSITIVE:
+                            finish();
                             startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                             overridePendingTransition(0,0);
 

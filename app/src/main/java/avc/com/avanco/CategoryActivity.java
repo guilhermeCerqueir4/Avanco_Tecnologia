@@ -64,18 +64,16 @@ public class CategoryActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
-                    case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), CategoryActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
+
 
                     case R.id.products:
+                        finish();
                         startActivity(new Intent(getApplicationContext(), HomeeActivity.class));
                         overridePendingTransition(0,0);
                         return true;
 
                     case R.id.settings:
-
+                        finish();
                         startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
                         overridePendingTransition(0,0);
                         return true;

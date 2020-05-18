@@ -106,10 +106,17 @@ public class CartActivity extends AppCompatActivity {
 
                 //txtTotalAmount.setText("TOTAL: R$ " + String.valueOf(overTotalPrice));
 
+                if (overTotalPrice != 0) {
                 Intent intent = new Intent(CartActivity.this, ConfirmFinalOrderActivity.class);
                 //intent.putExtra("Total Price", String.valueOf(overTotalPrice));
                 startActivity(intent);
                 finish();
+
+                }
+                else {
+                    Toast.makeText(CartActivity.this, "O carrinho está vazio.", Toast.LENGTH_SHORT).show();
+
+                }
             }
         });
 
