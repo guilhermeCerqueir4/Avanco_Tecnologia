@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -51,7 +53,6 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_add_new_product);
 
-
         getSupportActionBar().setTitle("Novo Produto");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -80,6 +81,8 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
             public void onClick(View view)
             {
                 ValidateProductData();
+
+
             }
         });
 
@@ -136,70 +139,103 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
     }
 
     private void StoreProductInformation()
+
     {
-        loadingBar.setTitle("Adicionando novo produto.");
-        loadingBar.setMessage("Por favor, espere enquanto estamos adicionando o produto. ");
-        loadingBar.setCanceledOnTouchOutside(false);
-        loadingBar.show();
-
-        Calendar calendar = Calendar.getInstance();
-
-        SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
-        saveCurrentDate = currentDate.format(calendar.getTime());
-
-        SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
-        saveCurrentTime = currentTime.format(calendar.getTime());
-
-        productRandomKey = saveCurrentDate + saveCurrentTime;
 
 
-        final StorageReference filePath = ProductImagesRef.child(ImageUri.getLastPathSegment() + productRandomKey + ".jpg");
-
-        final UploadTask uploadTask = filePath.putFile(ImageUri);
-
-
-        uploadTask.addOnFailureListener(new OnFailureListener() {
+        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
             @Override
-            public void onFailure(@NonNull Exception e)
-            {
-                String message = e.toString();
-                Toast.makeText(AdminAddNewProductActivity.this, "Erro: " + message, Toast.LENGTH_SHORT).show();
-                loadingBar.dismiss();
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case DialogInterface.BUTTON_POSITIVE:
+
+                        loadingBar.setTitle("Adicionando novo produto.");
+                        loadingBar.setMessage("Por favor, espere enquanto estamos adicionando o produto. ");
+                        loadingBar.setCanceledOnTouchOutside(false);
+                        loadingBar.show();
+
+                        Calendar calendar = Calendar.getInstance();
+
+                        SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
+                        saveCurrentDate = currentDate.format(calendar.getTime());
+
+                        SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
+                        saveCurrentTime = currentTime.format(calendar.getTime());
+
+                        productRandomKey = saveCurrentDate + saveCurrentTime;
+
+
+                        final StorageReference filePath = ProductImagesRef.child(ImageUri.getLastPathSegment() + productRandomKey + ".jpg");
+
+                        final UploadTask uploadTask = filePath.putFile(ImageUri);
+
+
+                        uploadTask.addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e)
+                            {
+                                String message = e.toString();
+                                Toast.makeText(AdminAddNewProductActivity.this, "Erro: " + message, Toast.LENGTH_SHORT).show();
+                                loadingBar.dismiss();
+                            }
+                        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot)
+                            {
+                                //Toast.makeText(AdminAddNewProductActivity.this, "Product Image uploaded Successfully...", Toast.LENGTH_SHORT).show();
+
+                                Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                                    @Override
+                                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception
+                                    {
+                                        if (!task.isSuccessful())
+                                        {
+                                            throw task.getException();
+                                        }
+
+                                        downloadImageUrl = filePath.getDownloadUrl().toString();
+                                        return filePath.getDownloadUrl();
+                                    }
+                                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Uri> task)
+                                    {
+                                        if (task.isSuccessful())
+                                        {
+                                            downloadImageUrl = task.getResult().toString();
+
+                                            //Toast.makeText(AdminAddNewProductActivity.this, "got the Product image Url Successfully...", Toast.LENGTH_SHORT).show();
+
+                                            SaveProductInfoToDatabase();
+                                        }
+                                    }
+                                });
+                            }
+                        });
+
+
+
+                        break;
+
+                    case DialogInterface.BUTTON_NEGATIVE:
+
+                        break;
+                }
             }
-        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot)
-            {
-                //Toast.makeText(AdminAddNewProductActivity.this, "Product Image uploaded Successfully...", Toast.LENGTH_SHORT).show();
+        };
 
-                Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-                    @Override
-                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception
-                    {
-                        if (!task.isSuccessful())
-                        {
-                            throw task.getException();
-                        }
+        AlertDialog.Builder builder = new AlertDialog.Builder(AdminAddNewProductActivity.this);
+        builder.setMessage("Confirmar inclusão de produto?").setPositiveButton("SIM", dialogClickListener)
+                .setNegativeButton("NÃO", dialogClickListener).show();
 
-                        downloadImageUrl = filePath.getDownloadUrl().toString();
-                        return filePath.getDownloadUrl();
-                    }
-                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Uri> task)
-                    {
-                        if (task.isSuccessful())
-                        {
-                            downloadImageUrl = task.getResult().toString();
 
-                            //Toast.makeText(AdminAddNewProductActivity.this, "got the Product image Url Successfully...", Toast.LENGTH_SHORT).show();
 
-                            SaveProductInfoToDatabase();
-                        }
-                    }
-                });
-            }
-        });
+
+
+
+
+
+
     }
 
     @Override

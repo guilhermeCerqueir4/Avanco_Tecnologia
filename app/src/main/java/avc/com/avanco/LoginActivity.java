@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -108,6 +109,7 @@ public class LoginActivity extends AppCompatActivity
         }
         else
         {
+
             loadingBar.setTitle("Lendo dados..");
             loadingBar.setMessage("Por favor aguarde enquanto estamos checando suas credenciais");
             loadingBar.setCanceledOnTouchOutside(false);
@@ -119,6 +121,8 @@ public class LoginActivity extends AppCompatActivity
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
+        startActivity(new Intent(getApplicationContext(), RegistrationActivity.class));
+        overridePendingTransition(0,0);
         finish();
         return true;
     }

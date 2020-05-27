@@ -20,7 +20,7 @@
         android:id="@+id/total_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TOTAL : "
+        android:text="TOTAL : R$"
         android:textSize="20dp"
         android:textStyle="bold"
         android:textColor="@android:color/white"
@@ -31,6 +31,21 @@
 
 
         ></RelativeLayout>
+
+    <TextView
+        android:id="@+id/msg1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:textAlignment="center"
+        android:visibility="gone"
+        android:layout_centerVertical="true"
+        android:textColor="@android:color/white"
+        android:text="Parabéns, seu pedido de compra foi realizado com sucesso."
+        android:textSize="20dp"
+
+        />
 
     <RelativeLayout
         android:id="@+id/rli5"
@@ -63,6 +78,8 @@
         ></RelativeLayout>
 
 
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cart_list"
         android:layout_width="match_parent"
@@ -70,10 +87,7 @@
         android:layout_below="@+id/rli5"
         android:layout_above="@+id/next_process_button"
         android:background="#616659"
-
         >
-
-
     </androidx.recyclerview.widget.RecyclerView>
         <Button
             android:id="@+id/next_process_button"

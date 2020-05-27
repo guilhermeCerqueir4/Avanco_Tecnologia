@@ -13,24 +13,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="67dp"
+        android:background="@color/colorAccent"
         android:text="Adicionar novo produto"
+        android:layout_margin="15dp"
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="26sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/oi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="280dp"
-        android:text="Escolha a categoria"
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="23sp"
-         />
+
 
     <LinearLayout
         android:id="@+id/linear1_category_layout"
@@ -38,9 +29,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/slogan_category"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="15dp"
+        android:background="@color/colorAccent"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -72,6 +64,53 @@
             android:src="@drawable/categoryhd" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/admin_checkorder_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@color/colorAccent"
+        android:text="Verificar Pedidos de Compra"
+        android:textColor="@android:color/white"
+        android:textAlignment="center"
+        android:layout_above="@+id/admin_suporte"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textStyle="bold"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/admin_suporte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@color/colorAccent"
+        android:text="SUPORTE"
+        android:textColor="@android:color/white"
+        android:textAlignment="center"
+        android:layout_above="@+id/admin_logout_btn"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textStyle="bold"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/admin_logout_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+        android:background="@color/colorAccent"
+        android:text="LOGOUT"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:textColor="@android:color/white"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textSize="20dp" />
 
 
 

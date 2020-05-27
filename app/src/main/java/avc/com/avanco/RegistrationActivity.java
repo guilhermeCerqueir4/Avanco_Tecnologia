@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,12 +21,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class RegistrationActivity extends AppCompatActivity {
 
     DatabaseHelper db;
-     EditText e1,e2,e3, e4 ;
+     EditText e1,e2,e3, e4, email;
     Button b1, b2;
     private ProgressDialog loadingBar;
 
@@ -39,6 +43,7 @@ public class RegistrationActivity extends AppCompatActivity {
         e2 = (EditText)findViewById(R.id.senha);
         e3 = (EditText)findViewById(R.id.confirmarSenha);
         e4 = (EditText)findViewById(R.id.phone);
+        email = (EditText)findViewById(R.id.email);
         b1 = (Button)findViewById(R.id.botaoRegistro);
         b2 = (Button)findViewById(R.id.botaoLogin);
 
@@ -101,9 +106,10 @@ public class RegistrationActivity extends AppCompatActivity {
         String s1 = e1.getText().toString();
         String s2 = e2.getText().toString();
         String s3 = e3.getText().toString();
+        String s4 = email.getText().toString();
         String phone = e4.getText().toString();
 
-        if ( s1.equals("") || s2.equals("") || s3.equals("") || phone.equals("") ) {
+        if ( s1.equals("") || s2.equals("") || s3.equals("") || phone.equals("") || s4.equals("") ) {
             Toast.makeText(getApplicationContext(), "Favor preencher todos os campos", Toast.LENGTH_SHORT).show();
         }
         else {
@@ -119,7 +125,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
 
                         //Se o nomeUsuario for valido, é chamado o método validar numero de telefone.
-                        ValidateNomeUser(s1,s2,phone );
+                        ValidateNomeUser(s1,s2,phone, s4 );
 
                         //Toast.makeText(getApplicationContext(), "Registrado com Sucesso", Toast.LENGTH_SHORT).show();
                    // }
@@ -134,7 +140,7 @@ public class RegistrationActivity extends AppCompatActivity {
         }
     }
 
-    private void ValidatephoneNumber(final String s1, final String s2, final String phone)
+    private void ValidatephoneNumber(final String s1, final String s2, final String phone, final String s4)
     {
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
@@ -148,6 +154,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     userdataMap.put("phone", phone);
                     userdataMap.put("nomeUsuario", s1);
                     userdataMap.put("senha", s2);
+                    userdataMap.put("email", s4);
 
                     RootRef.child("Users").child(phone).updateChildren(userdataMap)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -159,6 +166,19 @@ public class RegistrationActivity extends AppCompatActivity {
 
                                         Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
                                         startActivity(intent);
+
+                                        String fromEmail = "avancotech.app@gmail.com";
+                                        String fromPassword = "avancoapp";
+                                        String toEmails = s4 ;
+                                        List<String> toEmailList = Arrays.asList(toEmails
+                                                .split("\\s*,\\s*"));
+                                        Log.i("SendMailActivity", "To List: " + toEmailList);
+                                        String emailSubject = "AVANÇO APP - Bem vindo, " + s1 + "!";
+                                        String emailBody = ("Bem-vindo ao Avanco App!");
+
+
+                                        new SendMailTask(RegistrationActivity.this).execute(fromEmail,
+                                                fromPassword, toEmailList, emailSubject, emailBody);
                                     }
                                     else {
                                         loadingBar.dismiss();
@@ -184,7 +204,7 @@ public class RegistrationActivity extends AppCompatActivity {
         });
     }
 
-    private void ValidateNomeUser(final String s1, final String s2, final String phone)
+    private void ValidateNomeUser(final String s1, final String s2, final String phone,  final String s4)
     {
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
@@ -194,7 +214,7 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (!(dataSnapshot.child("Users").child(s1).exists()) )
                 {
-                    ValidatephoneNumber(s1,s2,phone );
+                    ValidatephoneNumber(s1,s2,phone, s4 );
 
 
                 }

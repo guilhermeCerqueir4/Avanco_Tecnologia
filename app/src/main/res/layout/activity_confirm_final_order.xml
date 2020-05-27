@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#616659"
     tools:context="avc.com.avanco.ConfirmFinalOrderActivity">
 
 
@@ -13,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Por favor Confirme seus Dados de Compra"
         android:textSize="18dp"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:layout_margin="25dp"
         android:textAlignment="center"
         android:textStyle="bold"
@@ -24,9 +25,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txt"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
         android:hint="Confirme seu CPF"
         />
 
@@ -36,6 +39,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/shipment_cpf"
         android:layout_marginTop="5dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:hint="Confirme seu nome"
@@ -46,6 +51,8 @@
         android:id="@+id/shipment_phone_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
         android:layout_below="@+id/shipment_name"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="20dp"
@@ -59,6 +66,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/shipment_phone_number"
         android:layout_marginTop="5dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:hint="Confirme seu endereço"
@@ -69,10 +78,23 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/shipment_address"
         android:layout_marginTop="5dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:hint="Confirme seu CEP"
         />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/shipment_cart_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/shipment_cep"
+        android:layout_above="@+id/confirm_final_order_btn"
+        android:background="#616659"
+        >
+    </androidx.recyclerview.widget.RecyclerView>
 
     <Button
         android:id="@+id/confirm_final_order_btn"
@@ -80,7 +102,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_margin="20dp"
-        android:text="Confirmar"
+        android:text="FINALIZAR PEDIDO"
         android:textSize="20dp"
         android:textColor="@android:color/white"
         android:background="@color/colorAccent"

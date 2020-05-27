@@ -74,31 +74,18 @@ public class HomeeActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
-                    case R.id.home:
-
-                        startActivity(new Intent(getApplicationContext(), CategoryActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-
-
 
                     case R.id.settings:
 
                         startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
                         overridePendingTransition(0,0);
                         return true;
-/*
-                    case R.id.logout:
-                        loadingBar.setTitle("Sair");
-                        loadingBar.setMessage("Fazendo logoff...");
-                        loadingBar.setCanceledOnTouchOutside(false);
-                        loadingBar.show();
 
-                        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    case R.id.suporte:
+
+                        startActivity(new Intent(getApplicationContext(), SendMailActivity.class));
                         overridePendingTransition(0,0);
-                        return true;*/
-
-
+                        return true;
 
                 }
             return false;
@@ -140,7 +127,7 @@ public class HomeeActivity extends AppCompatActivity {
                     {
                         holder.txtProductName.setText(model.getPname().toUpperCase());
                         holder.txtProductDescription.setText(model.getDescription());
-                        holder.txtProductPrice.setText("R$ " + String.format(model.getPrice()));
+                        holder.txtProductPrice.setText("R$ " + String.format(model.getPrice()) + ",00");
                         Picasso.get().load(model.getImage()).into(holder.imageView);
 
                         holder.itemView.setOnClickListener(new View.OnClickListener() {

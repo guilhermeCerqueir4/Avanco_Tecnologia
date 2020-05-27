@@ -13,15 +13,17 @@
 
         <TextView
             android:id="@+id/preencha"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="20dp"
-            android:textSize="20dp"
-            android:textStyle="bold
-"           android:typeface="monospace"
-            android:text="Adicionar novo produto:"
+            android:layout_width="355dp"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="65dp"
+            android:textAlignment="textStart"
+            android:textStyle="bold"
+
+            android:text="Escolha imagem do produto:"
             android:textColor="@android:color/white"
-            android:gravity="center"
 
             ></TextView>
 
@@ -31,12 +33,13 @@
         android:layout_width="355dp"
         android:layout_height="171dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="65dp"
         android:layout_marginRight="65dp"
+        android:background="@drawable/side_nav_bar"
         android:cropToPadding="false"
         android:scaleType="fitXY"
-        android:src="@drawable/add_camera" />
+        android:src="@drawable/camera" />
 
     <EditText
         android:id="@+id/product_name"
@@ -87,15 +90,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/product_description"
-        android:text="Adicionar"
+        android:text="ADICIONAR PRODUTO"
         android:layout_marginLeft="45dp"
         android:layout_marginRight="45dp"
         android:padding="17dp"
         android:layout_marginTop="15dp"
         android:textSize="22sp"
         android:textAllCaps="false"
+        android:textStyle="bold"
         android:textColor="@android:color/white"
-        android:background="@drawable/side_nav_bar"
+        android:background="@color/colorAccent"
         /></RelativeLayout>
 </ScrollView>
 

@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,16 +14,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashScreenActivity"
+        <activity android:name=".AdminUserProductsActivity"></activity>
+        <activity android:name=".SendMailActivity" />
+        <activity
+            android:name=".AdminNewOrdersActivity"
+            android:parentActivityName=".AdminCategoryActivity" />
+        <activity
+            android:name=".SplashScreenActivity"
             android:theme="@style/AppTheme.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ConfirmFinalOrderActivity" />
+        <activity
+            android:name=".ConfirmFinalOrderActivity"
+            android:parentActivityName=".CartActivity" />
         <activity android:name=".CartActivity" />
         <activity
             android:name=".ProductDetailsActivity"
@@ -34,7 +42,9 @@
             android:name=".HomeeActivity"
             android:label="@string/title_activity_homee"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".AdminCategoryActivity" />
+        <activity
+            android:name=".AdminCategoryActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".AdminAddNewProductActivity"
             android:parentActivityName=".AdminCategoryActivity" />
@@ -51,9 +61,7 @@
             android:theme="@style/Base.Theme.AppCompat" />
         <activity
             android:name=".RegistrationActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".DiscoRigidoActivity"
             android:parentActivityName=".MainActivity" />

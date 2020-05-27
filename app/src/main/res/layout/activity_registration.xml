@@ -66,6 +66,40 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/phone"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edit"
+                android:drawableLeft="@drawable/ic_person"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Telefone (Usado para Login)"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="15dp"
+
+                />
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edit"
+                android:drawableLeft="@drawable/ic_person"
+                android:drawablePadding="10dp"
+                android:ems="1"
+                android:hint="E-mail"
+                android:inputType="text"
+                android:padding="15dp"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="15dp"
+
+                />
+            <EditText
                 android:id="@+id/nomeUsuario"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
@@ -82,23 +116,10 @@
                 android:textSize="15dp"
 
                 />
-            <EditText
-                android:id="@+id/phone"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/edit"
-                android:drawableLeft="@drawable/ic_person"
-                android:drawablePadding="10dp"
-                android:ems="10"
-                android:hint="Telefone"
-                android:inputType="number"
-                android:padding="15dp"
-                android:textColorHint="@color/colorPrimary"
-                android:textSize="15dp"
 
-                />
+
+
+
 
             <EditText
                 android:id="@+id/senha"

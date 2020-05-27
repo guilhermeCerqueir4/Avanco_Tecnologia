@@ -64,20 +64,20 @@ public class SettingsActivity extends AppCompatActivity
         saveTextButton = (TextView) findViewById(R.id.update_account_settings_btn);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setSelectedItemId(R.id.home);
+        bottomNavigationView.setSelectedItemId(R.id.settings);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
-                    case R.id.home:
-                        finish();
-                        startActivity(new Intent(getApplicationContext(), CategoryActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-
                     case R.id.products:
                         finish();
                         startActivity(new Intent(getApplicationContext(), HomeeActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.suporte:
+                        finish();
+                        startActivity(new Intent(getApplicationContext(), SendMailActivity.class));
                         overridePendingTransition(0,0);
                         return true;
 
