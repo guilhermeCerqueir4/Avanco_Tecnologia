@@ -36,6 +36,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
         LogoutButton = findViewById(R.id.admin_logout_btn);
         CheckOrderBtn = findViewById(R.id.admin_checkorder_btn);
 
+        /*
         SuporteButton = findViewById(R.id.admin_suporte);
 
         SuporteButton.setOnClickListener(new View.OnClickListener() {
@@ -43,7 +44,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), SendMailActivity.class));
             }
-        });
+        });*/
 
         CheckOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override

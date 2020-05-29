@@ -14,11 +14,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdminUserProductsActivity"></activity>
+        <activity android:name=".SearchProductsActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".AdminUserProductsActivity"
+            android:parentActivityName=".AdminNewOrdersActivity" />
         <activity android:name=".SendMailActivity" />
         <activity
             android:name=".AdminNewOrdersActivity"
             android:parentActivityName=".AdminCategoryActivity" />
+        <activity
+            android:name=".UsersNewOrdersActivity"
+            android:parentActivityName=".HomeeActivity" />
         <activity
             android:name=".SplashScreenActivity"
             android:theme="@style/AppTheme.NoActionBar">

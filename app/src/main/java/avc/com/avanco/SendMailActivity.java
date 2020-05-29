@@ -153,6 +153,8 @@ public class SendMailActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.homee, menu);
+        MenuItem item = menu.findItem(R.id.action_search);
+        item.setVisible(false);
         return true;
     }
 

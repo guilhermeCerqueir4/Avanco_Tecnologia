@@ -32,6 +32,9 @@ public class AdminUserProductsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_user_products);
 
+        getSupportActionBar().setTitle("Itens do Pedido");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         userID = getIntent().getStringExtra("uid");
 
         productsList = findViewById(R.id.products_list);
@@ -78,5 +81,12 @@ public class AdminUserProductsActivity extends AppCompatActivity {
 
         productsList.setAdapter(adapter);
         adapter.startListening();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        finish();
+        return true;
     }
 }

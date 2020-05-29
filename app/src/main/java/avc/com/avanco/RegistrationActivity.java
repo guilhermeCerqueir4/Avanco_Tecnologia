@@ -177,6 +177,8 @@ public class RegistrationActivity extends AppCompatActivity {
                                         String emailBody = ("Bem-vindo ao Avanco App!");
 
 
+
+
                                         new SendMailTask(RegistrationActivity.this).execute(fromEmail,
                                                 fromPassword, toEmailList, emailSubject, emailBody);
                                     }

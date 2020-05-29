@@ -178,6 +178,12 @@ public class HomeeActivity extends AppCompatActivity {
             overridePendingTransition(0,0);
         }
 
+        if(id == R.id.action_search) {
+
+            startActivity(new Intent(getApplicationContext(), SearchProductsActivity.class));
+            overridePendingTransition(0,0);
+        }
+
         if(id == R.id.action_logout) {
 
 

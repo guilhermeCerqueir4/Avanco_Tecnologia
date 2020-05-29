@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="avc.com.avanco.AdminUserProductsActivity">
+    tools:context="avc.com.avanco.AdminNewOrdersActivity">
 
     <RelativeLayout
-        android:id="@+id/r3"
+        android:id="@+id/r2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/colorAccent"
@@ -16,11 +16,10 @@
 
 
         <TextView
-
             android:id="@+id/total_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Produtos do Pedido"
+            android:text="Novos Pedidos"
             android:textSize="25dp"
             android:textStyle="bold"
             android:textColor="@android:color/white"
@@ -33,12 +32,12 @@
         ></RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/products_list"
+        android:id="@+id/orders_list"
         android:layout_width="match_parent"
-        android:layout_height=  "match_parent"
-        android:layout_below="@+id/r3"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/r2"
         android:background="#616659"
-        />
-
+        >
+    </androidx.recyclerview.widget.RecyclerView>
 
 </RelativeLayout>

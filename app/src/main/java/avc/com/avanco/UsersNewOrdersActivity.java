@@ -1,11 +1,5 @@
 package avc.com.avanco;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,14 +8,20 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import avc.com.avanco.model.AdminOrders;
+import avc.com.avanco.prevalent.Prevalent;
 
-public class AdminNewOrdersActivity extends AppCompatActivity {
+public class UsersNewOrdersActivity extends AppCompatActivity {
 
     private RecyclerView ordersList;
     private DatabaseReference ordersRef;
@@ -29,15 +29,12 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_new_orders);
+        setContentView(R.layout.activity_users_new_orders);
 
-        getSupportActionBar().setTitle("Pedidos de Compras");
+        getSupportActionBar().setTitle("Meus Pedidos");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ordersRef = FirebaseDatabase.getInstance().getReference()
-                .child("Orders")
-
-        ;
+        ordersRef = FirebaseDatabase.getInstance().getReference().child("Orders");
 
         ordersList = findViewById(R.id.orders_list);
         ordersList.setLayoutManager(new LinearLayoutManager(this));
@@ -72,7 +69,7 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
 
                                 String uID = getRef(i).getKey();
 
-                                Intent intent = new Intent(AdminNewOrdersActivity.this, AdminUserProductsActivity.class);
+                                Intent intent = new Intent(UsersNewOrdersActivity.this, AdminUserProductsActivity.class);
                                 intent.putExtra("uid", uID);
                                 startActivity(intent);
                             }

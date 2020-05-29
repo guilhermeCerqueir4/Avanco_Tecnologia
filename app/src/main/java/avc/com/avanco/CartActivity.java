@@ -95,6 +95,20 @@ public class CartActivity extends AppCompatActivity {
                             }
                         });
 
+                FirebaseDatabase.getInstance().getReference()
+                        .child("Cart List").child("Admin View").child(Prevalent.currentOnlineUser.getPhone())
+                        .removeValue()
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(CartActivity.this, "O carrinho foi limpo.", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Log.d("Deletar", "Erro. Tente novamente mais tarde.");
+                                }
+                            }
+                        });
+
             }
         });
 
@@ -190,6 +204,20 @@ public class CartActivity extends AppCompatActivity {
                                     .child("Cart List").child("User View").child(Prevalent.currentOnlineUser.getPhone())
                                     .child("Products").child(model.getPid()).removeValue()
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if (task.isSuccessful()) {
+                                                        Toast.makeText(CartActivity.this, "O item foi retirado do carrinho.", Toast.LENGTH_SHORT).show();
+                                                    } else {
+                                                        Toast.makeText(CartActivity.this, "Erro. Tente novamente mais tarde.", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                }
+                                            });
+
+                                    FirebaseDatabase.getInstance().getReference()
+                                            .child("Cart List").child("Admin View").child(Prevalent.currentOnlineUser.getPhone())
+                                            .child("Products").child(model.getPid()).removeValue()
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     if (task.isSuccessful()) {

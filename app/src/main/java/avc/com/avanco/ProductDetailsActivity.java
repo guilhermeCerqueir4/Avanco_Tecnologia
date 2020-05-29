@@ -141,6 +141,8 @@ public class ProductDetailsActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.homee, menu);
+        MenuItem item = menu.findItem(R.id.action_search);
+        item.setVisible(false);
         return true;
     }
     @Override
@@ -152,7 +154,6 @@ public class ProductDetailsActivity extends AppCompatActivity {
             onBackPressed();
             return true;
         }
-
         if(id == R.id.action_cart) {
             finish();
             startActivity(new Intent(getApplicationContext(), CartActivity.class));

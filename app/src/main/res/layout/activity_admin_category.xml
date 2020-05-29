@@ -74,26 +74,13 @@
         android:text="Verificar Pedidos de Compra"
         android:textColor="@android:color/white"
         android:textAlignment="center"
-        android:layout_above="@+id/admin_suporte"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:textStyle="bold"
-        android:textSize="20dp" />
-
-    <Button
-        android:id="@+id/admin_suporte"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:background="@color/colorAccent"
-        android:text="SUPORTE"
-        android:textColor="@android:color/white"
-        android:textAlignment="center"
         android:layout_above="@+id/admin_logout_btn"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:textStyle="bold"
         android:textSize="20dp" />
+
+
 
     <Button
         android:id="@+id/admin_logout_btn"

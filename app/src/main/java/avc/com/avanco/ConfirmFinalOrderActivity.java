@@ -112,6 +112,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         final DatabaseReference ordersRef = FirebaseDatabase.getInstance().getReference()
                 .child("Orders")
                 .child(Prevalent.currentOnlineUser.getPhone());
+                ;
 
         HashMap<String, Object> ordersMap = new HashMap<>();
 
@@ -130,6 +131,8 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
 
                 if (task.isSuccessful()){
+
+
                     FirebaseDatabase.getInstance().getReference()
                             .child("Cart List")
                             .child("User View")
@@ -144,7 +147,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
 
 
                                        // Toast.makeText(ConfirmFinalOrderActivity.this, "Seu pedido foi processado com sucesso.", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(ConfirmFinalOrderActivity.this, HomeeActivity.class);
+                                        Intent intent = new Intent(ConfirmFinalOrderActivity.this, UsersNewOrdersActivity.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                         startActivity(intent);
                                         finish();

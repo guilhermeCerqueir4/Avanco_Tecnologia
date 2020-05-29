@@ -30,6 +30,7 @@
             android:background="#FFFFFF"
             android:cursorVisible="true"
             android:editable="true"
+            android:hint="Digite seu e-mail"
             android:textSize="14dp"
             android:ems="10"
             android:enabled="true"
@@ -125,6 +126,8 @@
             android:layout_marginTop="10dp"
             android:background="@color/colorAccent"
             android:layout_width="match_parent"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
             android:layout_height="wrap_content"
             android:text="Enviar e-mail" />
     </LinearLayout>
