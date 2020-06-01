@@ -21,10 +21,22 @@
         />
 
     <EditText
+        android:id="@+id/shipment_cep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt"
+        android:layout_marginTop="5dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/holo_orange_light"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="* (Importante) Endereço de E-mail * "
+        />
+    <EditText
         android:id="@+id/shipment_cpf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txt"
+        android:layout_below="@id/shipment_cep"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -72,25 +84,14 @@
         android:layout_marginRight="20dp"
         android:hint="Confirme seu endereço"
         />
-    <EditText
-        android:id="@+id/shipment_cep"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/shipment_address"
-        android:layout_marginTop="5dp"
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:hint="Confirme seu CEP"
-        />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/shipment_cart_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:layout_below="@+id/shipment_cep"
+        android:layout_below="@+id/shipment_address"
         android:layout_above="@+id/confirm_final_order_btn"
         android:background="#616659"
         >

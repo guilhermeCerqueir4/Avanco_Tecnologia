@@ -34,7 +34,8 @@ public class UsersNewOrdersActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Meus Pedidos");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ordersRef = FirebaseDatabase.getInstance().getReference().child("Orders");
+        ordersRef = FirebaseDatabase.getInstance().getReference()
+                .child("Orders");
 
         ordersList = findViewById(R.id.orders_list);
         ordersList.setLayoutManager(new LinearLayoutManager(this));
@@ -61,7 +62,7 @@ public class UsersNewOrdersActivity extends AppCompatActivity {
                         holder.status.setText("Status:     " + model.getStatus());
                         holder.userTotalPedido.setText("TOTAL:  R$ " + model.getTotalPedido());
                         holder.userDataTime.setText("Data/hora:   " + model.getDate() +"  "+model.getTime());
-                        holder.userShippingAddress.setText("Endereço:    " + model.getAddress() + ", " + model.getCep());
+                        holder.userShippingAddress.setText("Endereço:    " + model.getAddress() );
 
                         holder.ShowOrdersBtn.setOnClickListener(new View.OnClickListener() {
                             @Override

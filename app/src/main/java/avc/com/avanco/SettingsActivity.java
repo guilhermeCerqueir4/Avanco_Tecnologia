@@ -164,7 +164,7 @@ public class SettingsActivity extends AppCompatActivity
         }
         else
         {
-            Toast.makeText(this, "Error, Try Again.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Erro, tente novamente.", Toast.LENGTH_SHORT).show();
 
             startActivity(new Intent(SettingsActivity.this, SettingsActivity.class));
             finish();
@@ -249,14 +249,14 @@ public class SettingsActivity extends AppCompatActivity
                             else
                             {
                                 progressDialog.dismiss();
-                                Toast.makeText(SettingsActivity.this, "Error.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SettingsActivity.this, "Erro.", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
         }
         else
         {
-            Toast.makeText(this, "image is not selected.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Imagem nao selecionada", Toast.LENGTH_SHORT).show();
         }
     }
 
