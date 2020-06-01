@@ -14,8 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SearchProductsActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".FinishPedidoActivity"></activity>
+        <activity
+            android:name=".SearchProductsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".AdminUserProductsActivity"
             android:parentActivityName=".AdminNewOrdersActivity" />
